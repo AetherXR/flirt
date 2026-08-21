@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#09070a">
+  <title>Just For You</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="cursor-heart" id="cursorHeart" aria-hidden="true">
+  <svg viewBox="0 0 120 120" role="img" aria-label="Hati imut">
+    <path d="M60 100 C 28 78, 15 60, 15 42 C 15 27, 26 15, 40 15 C 49 15, 56 19, 60 26 C 64 19, 71 15, 80 15 C 94 15, 105 27, 105 42 C 105 60, 92 78, 60 100 Z" fill="#f4a7c1"/>
+    <path d="M42 26 C 34 16, 21 16, 16 28 C 10 40, 18 53, 31 62 C 38 67, 46 71, 52 76" fill="none" stroke="#f6d3df" stroke-width="6" stroke-linecap="round"/>
+    <path d="M78 26 C 86 16, 99 16, 104 28 C 110 40, 102 53, 89 62 C 82 67, 74 71, 68 76" fill="none" stroke="#f6d3df" stroke-width="6" stroke-linecap="round"/>
+    <circle cx="48" cy="52" r="4" fill="#fff" opacity="0.8"/>
+    <circle cx="72" cy="52" r="4" fill="#fff" opacity="0.8"/>
+  </svg>
+</div>
+
+<div id="particles" aria-hidden="true"></div>
+
+<header class="hero">
+  <div class="hero-inner">
+    <p class="eyebrow">just a little something</p>
+    <h1>aku cuma mau<br><em>ganggu kamu sebentar.</em></h1>
+    <p class="hero-sub">tenang, cuma sebentar aja kok.</p>
+
+    <button class="mystery-box" id="openBox" aria-label="Buka mystery box">
+      <span class="box-lid"></span>
+      <span class="box-body"></span>
+      <span class="box-ribbon-v"></span>
+      <span class="box-ribbon-h"></span>
+    </button>
+
+    <p class="box-hint">klik kalau berani</p>
+  </div>
+
+  <button class="scroll-hint" data-scroll="#tease">
+    <span>scroll</span>
+    <i></i>
+  </button>
+</header>
+
+<main>
+  <section class="section tease-section" id="tease">
+    <div class="reveal">
+      <p class="section-label">01 — sedikit godaan</p>
+      <h2>sebenernya aku punya<br><em>alasan</em> kenapa bikin ini.</h2>
+      <p class="body-copy">
+        Aku cuma pengen bikin sesuatu yang bikin kamu senyum sedikit.
+        Kalau ternyata kamu malah salting, itu di luar tanggung jawabku.
+      </p>
+    </div>
+  </section>
+
+  <div class="divider"><span></span><b>·</b><span></span></div>
+
+  <section class="section reasons-section">
+    <div class="reveal">
+      <p class="section-label">02 — jangan geer dulu</p>
+      <p class="reason-intro">tapi kalau kamu merasa ini tentang kamu...</p>
+    </div>
+
+    <div class="reason-list">
+      <article class="reason reveal">
+        <span>01</span>
+        <p>caramu ngetreat aku itu <strong>bahaya</strong>. sampe aku selalu kepikiran kamu.</p>
+      </article>
+      <article class="reason reveal">
+        <span>02</span>
+        <p>aku ga bilang kamu lucu. <strong>tapi...</strong> kamu emang beneran lucu.</p>
+      </article>
+      <article class="reason reveal">
+        <span>03</span>
+        <p>kamu punya kemampuan aneh buat bikin aku bisa <strong>kangen</strong> terus sama kamu.</p>
+      </article>
+      <article class="reason reveal">
+        <span>04</span>
+        <p>dan kamu tau? aku <strong>nyaman sama kamu</strong>.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="player-section" id="player">
+    <div class="player-wrap reveal">
+      <p class="section-label">03 — dengerin deh</p>
+      <h2>ada satu lagu yang<br><em>aku pilih buat kamu.</em></h2>
+
+      <div class="player-card">
+        <div class="cover">
+          <img id="coverImage" src="cover.jpeg" alt="Cover lagu">
+          <div class="cover-shade"></div>
+          <span class="cover-number">01</span>
+        </div>
+
+        <div class="player-content">
+          <div>
+            <p class="now-playing">now playing</p>
+            <h3 id="songTitle">The World Is Ugly</h3>
+            <p id="songArtist">My Chemical Romance</p>
+          </div>
+
+          <audio id="audio" preload="metadata"></audio>
+
+          <div class="progress-row">
+            <span id="current">0:00</span>
+            <input id="progress" type="range" min="0" max="100" value="0" aria-label="Progress lagu">
+            <span id="total">0:00</span>
+          </div>
+
+          <div class="player-controls">
+            <button class="circle-btn" id="backBtn" aria-label="Mundur 10 detik">−10</button>
+            <button class="play-btn" id="playBtn" aria-label="Putar">▶</button>
+            <button class="circle-btn" id="forwardBtn" aria-label="Maju 10 detik">+10</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="lyrics-card">
+        <p class="now-playing">lyrics</p>
+        <h3 id="lyricsTitle">buat nemenin kamu</h3>
+        <div class="lyrics" id="lyrics"></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="after-song" id="afterSong">
+    <div class="after-glow"></div>
+    <div class="reveal">
+      <p class="section-label">04 — kalau lagunya selesai</p>
+      <h2 id="finishTitle">oke, sekarang jangan senyum-senyum dulu ya.</h2>
+      <p id="finishText">ayo, scroll kebawah dulu, ada kejutan kecil.</p>
+    </div>
+    <div id="floatingWords" aria-hidden="true"></div>
+  </section>
+
+  <section class="final-section">
+    <div class="reveal">
+      <p class="section-label">06 — satu kotak lagi</p>
+      <h2>aku mau kamu buka.<br><em>kotak ini deh.</em></h2>
+      <p class="body-copy">aku punya satu pertanyaan yang agak penting.</p>
+    </div>
+
+    <button class="mystery-box final-box" id="finalBox" aria-label="Buka pertanyaan">
+      <span class="box-lid"></span>
+      <span class="box-body"></span>
+      <span class="box-ribbon-v"></span>
+      <span class="box-ribbon-h"></span>
+
+      <svg class="cat-face" viewBox="0 0 100 100" aria-hidden="true" role="img">
+        <rect x="20" y="10" width="12" height="22" fill="#f8dfe8"/>
+        <rect x="68" y="10" width="12" height="22" fill="#f8dfe8"/>
+        <rect x="32" y="18" width="36" height="16" fill="#f8dfe8"/>
+        <rect x="18" y="28" width="64" height="38" fill="#f8dfe8"/>
+        <rect x="28" y="36" width="14" height="14" fill="#201116"/>
+        <rect x="58" y="36" width="14" height="14" fill="#201116"/>
+        <rect x="44" y="42" width="12" height="10" fill="#f4a7c1"/>
+        <rect x="32" y="52" width="10" height="10" fill="#f8b5cf"/>
+        <rect x="58" y="52" width="10" height="10" fill="#f8b5cf"/>
+        <rect x="44" y="58" width="12" height="8" fill="#201116"/>
+        <rect x="24" y="60" width="16" height="16" fill="#f8dfe8"/>
+        <rect x="60" y="60" width="16" height="16" fill="#f8dfe8"/>
+        <rect x="38" y="70" width="24" height="10" fill="#f8dfe8"/>
+      </svg>
+    </button>
+  </section>
+</main>
+
+<div class="modal hidden" id="questionModal">
+  <div class="modal-card">
+    <button class="close" id="closeModal" aria-label="Tutup">×</button>
+    <div class="letter-cat" aria-hidden="true">
+      <svg class="letter-cat-svg" viewBox="0 0 180 120" role="img" aria-label="Kucing lucu">
+        <rect x="10" y="20" width="24" height="22" fill="#f9dfe9"/>
+        <rect x="146" y="20" width="24" height="22" fill="#f9dfe9"/>
+        <polygon points="34,20 50,0 66,20" fill="#f9dfe9"/>
+        <polygon points="114,20 130,0 146,20" fill="#f9dfe9"/>
+        <rect x="36" y="30" width="108" height="56" rx="8" fill="#f9dfe9"/>
+        <rect x="52" y="44" width="18" height="18" fill="#201116"/>
+        <rect x="110" y="44" width="18" height="18" fill="#201116"/>
+        <rect x="82" y="50" width="16" height="12" fill="#f4a7c1"/>
+        <rect x="62" y="62" width="12" height="10" fill="#f7bacb"/>
+        <rect x="106" y="62" width="12" height="10" fill="#f7bacb"/>
+        <rect x="78" y="74" width="24" height="12" fill="#201116"/>
+        <rect x="30" y="76" width="22" height="14" fill="#f9dfe9"/>
+        <rect x="128" y="76" width="22" height="14" fill="#f9dfe9"/>
+        <rect x="68" y="82" width="44" height="14" fill="#f9dfe9"/>
+      </svg>
+    </div>
+    <p class="section-label">one last question</p>
+    <h2 id="questionTitle">kalau aku sayang kamu,<br><em>kamu ngga keberatan kan?</em></h2>
+    <p id="questionText">jawab jujur ya, aku pengen tau isi hati kamu.</p>
+
+    <form id="answerForm">
+      <input id="senderName" type="text" maxlength="60" placeholder="nama kamu" required>
+      <textarea id="senderMessage" rows="4" placeholder="jawaban kamu..."></textarea>
+
+      <div class="answer-buttons">
+        <button type="button" class="answer-btn" data-answer="Nggak keberatan.">nggak kok</button>
+        <button type="button" class="answer-btn" data-answer="Mungkin sedikit.">mungkin dikit</button>
+      </div>
+
+      <button class="send-btn" id="sendBtn" type="submit">kirim jawaban</button>
+      <p class="status" id="status"></p>
+    </form>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
