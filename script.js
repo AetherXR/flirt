@@ -21,7 +21,7 @@ const CONFIG = {
   finish: {
     title: "oke, sekarang jangan senyum-senyum dulu ya.",
     text: "ayo, scroll kebawah dulu, ada kejutan kecil.",
-    words: ["hey", "jangan salting", "pasti lucu", "hehe", "santai", "buka ini"]
+    words: ["hey", "aku sayang kamu", "cantik", "hehe", "love you", "buka ini"]
   },
 
   question: {
