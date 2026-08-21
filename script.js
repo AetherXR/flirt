@@ -21,7 +21,7 @@ const CONFIG = {
   finish: {
     title: "oke, sekarang jangan senyum-senyum dulu ya.",
     text: "ayo, scroll kebawah dulu, ada kejutan kecil.",
-    words: ["hey", "aku sayang kamu", "cantik", "hehe", "love you", "buka ini"]
+    words: ["hey", "jangan salting", "pasti lucu", "hehe", "santai", "buka ini"]
   },
 
   question: {
@@ -39,53 +39,8 @@ const CONFIG = {
 // ---------- helpers ----------
 const $ = s => document.querySelector(s);
 const audio = $("#audio");
-const cursorHeart = $("#cursorHeart");
 let parsedLyrics = [];
 let currentLyricIndex = -1;
-let heartX = window.innerWidth / 2;
-let heartY = window.innerHeight / 2;
-let targetHeartX = heartX;
-let targetHeartY = heartY;
-let heartScale = 0.7;
-
-function updateCursorHeart(clientX, clientY) {
-  targetHeartX = clientX;
-  targetHeartY = clientY;
-  if (!cursorHeart.classList.contains("visible")) cursorHeart.classList.add("visible");
-}
-
-function animateCursorHeart() {
-  const dx = targetHeartX - heartX;
-  const dy = targetHeartY - heartY;
-  heartX += dx * 0.18;
-  heartY += dy * 0.18;
-  heartScale += (((Math.abs(dx) + Math.abs(dy)) > 12) ? 1.02 : 0.98 - heartScale) * 0.18;
-  heartScale = Math.min(1.08, Math.max(0.78, heartScale));
-
-  const angle = Math.atan2(dy, dx) * (180 / Math.PI);
-  cursorHeart.style.transform = `translate(${heartX}px, ${heartY}px) scale(${heartScale}) rotate(${angle * 0.18}deg)`;
-  requestAnimationFrame(animateCursorHeart);
-}
-
-window.addEventListener("pointermove", e => updateCursorHeart(e.clientX, e.clientY));
-window.addEventListener("pointerdown", e => {
-  updateCursorHeart(e.clientX, e.clientY);
-  heartScale = 1.12;
-});
-window.addEventListener("pointerleave", () => cursorHeart.classList.remove("visible"));
-window.addEventListener("touchmove", e => {
-  const touch = e.touches[0];
-  if (touch) updateCursorHeart(touch.clientX, touch.clientY);
-}, { passive: true });
-window.addEventListener("touchstart", e => {
-  const touch = e.touches[0];
-  if (touch) {
-    updateCursorHeart(touch.clientX, touch.clientY);
-    heartScale = 1.12;
-  }
-}, { passive: true });
-
-requestAnimationFrame(animateCursorHeart);
 
 function formatTime(sec) {
   if (!Number.isFinite(sec)) return "0:00";
